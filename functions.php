@@ -17,3 +17,9 @@ new \theme_for_nix\classes\theme\DefaultFunctionsTheme();
 //new \theme_for_nix\classes\modules\CustomFilterCPT();
 //new \theme_for_nix\classes\modules\RegisterCPT();
 //new \theme_for_Nix\classes\modules\API();
+
+
+/**
+ * include Custom Post Type 'Movies'
+ */
+include('cpt-movies.php');
