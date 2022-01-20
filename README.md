@@ -4,6 +4,7 @@ Aleksey:
 
 Margarita:
 - register a Custom Post Type 
+- fix bug
 
 Yelisey:
 - creating API setting in admin for theme
