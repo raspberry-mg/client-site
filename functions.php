@@ -12,14 +12,8 @@ include 'classes/modules/API.php';
  * NEW classes
  */
 //default
-new \theme_for_nix\classes\theme\DefaultFunctionsTheme();
+new client_site\classes\DefaultFunctionsTheme();
 //modules
 //new \theme_for_nix\classes\modules\CustomFilterCPT();
-//new \theme_for_nix\classes\modules\RegisterCPT();
+new  client_site\classes\RegisterCPT();
 //new \theme_for_Nix\classes\modules\API();
-
-
-/**
- * include Custom Post Type 'Movies'
- */
-include('cpt-movies.php');
