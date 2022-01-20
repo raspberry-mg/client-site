@@ -3,8 +3,7 @@ Aleksey:
 - testing
 
 Margarita:
-- creating repository
-- control pull request 
+- register a Custom Post Type 
 
 Yelisey:
 - creating API setting in admin for theme
