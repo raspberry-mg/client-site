@@ -1,6 +1,6 @@
 <?php
 
-namespace theme_for_nix\classes\modules;
+namespace client_site\classes;
 
 class CustomFilterCPT{
 

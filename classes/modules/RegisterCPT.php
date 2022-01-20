@@ -1,6 +1,6 @@
 <?php
 
-namespace theme_for_nix\classes\modules;
+namespace client_site\classes;
 
 class RegisterCPT
 {
@@ -19,8 +19,8 @@ class RegisterCPT
         }
     }
 
-    private function get_config(): array {
-        return include get_template_directory() . '/customConfigs/CustomCPT.php';
+    private function get_config() {
+        return include get_template_directory() .  '/custom-config/CustomCPT.php';
     }
 
 }
