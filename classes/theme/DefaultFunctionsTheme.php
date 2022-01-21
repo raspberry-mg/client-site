@@ -1,6 +1,6 @@
 <?php
 
-namespace client_site\classes;
+namespace client_site\classes\theme;
 
 class DefaultFunctionsTheme
 {

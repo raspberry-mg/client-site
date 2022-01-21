@@ -12,8 +12,8 @@ include 'classes/modules/API.php';
  * NEW classes
  */
 //default
-new client_site\classes\DefaultFunctionsTheme();
+new client_site\classes\theme\DefaultFunctionsTheme();
 //modules
 //new \theme_for_nix\classes\modules\CustomFilterCPT();
-new  client_site\classes\RegisterCPT();
+new  client_site\classes\modules\RegisterCPT();
 //new \theme_for_Nix\classes\modules\API();
