@@ -2,7 +2,7 @@
 
 return [
     [
-        'name' => 'blog',
+        'name' => 'Movies',
         'args'  =>  [     'labels' => array(
             'name' => __( 'Movies', THEME_FN_TEXT_DOMAIN ),
             'singular_name' => __( 'Movie', THEME_FN_TEXT_DOMAIN),
