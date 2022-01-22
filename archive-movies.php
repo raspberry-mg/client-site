@@ -22,10 +22,10 @@
                             margin-right: 5px;
                         }
                     </style>
-                    <form action="/movies/" method="get">
+                    <form action="<?php echo get_post_type_archive_link( 'movies' ); ?>" method="get">
                         <div class="mb-3">
-                            <label for="filter_search" class="form-label">Search film</label>
-                            <input type="text" name="filter_search" class="form-control" id="filter_search" value="">
+                            <label for="filter_search" class="form-label">Search</label>
+                            <input type="text" name="filter_search" class="form-control" id="filter_search" value="<?php echo $_GET['filter_search']; ?>">
                         </div>
                         <div class="mb-3">
                             <label for="filter_views" class="form-label">Time:<label>
@@ -36,7 +36,7 @@
                                     </select>
                         </div>
                         <div class="mb-3">
-                            <label for="filter_relevance" class="form-label">Rating </label>
+                            <label for="filter_relevance" class="form-label">IMDb Rating </label>
                             <div class="d-flex">
                                 <input type="range" oninput="dynamicChangeNum()" id="movie_imdb_rating" name="movie_imdb_rating" min="0" max="10" value="">
                                 <div id="one"></div>
@@ -49,25 +49,24 @@
                     </form>
                 </div>
             </div>
-
             <div class="col-md-9">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <?php while ( have_posts() ): the_post(); ?>
-                    <div class="col">
-                        <a style="text-decoration: none; color: black;" href="<?php the_permalink(); ?>">
-                            <div class="card shadow-sm">
-                              <?php the_post_thumbnail(); ?>
-                                <div class="card-body">
-                                    <h3 class="mb-0"><?php the_title(); ?></h3>
+                    <?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+                        <div class="col">
+                            <a style="text-decoration: none; color: black;" href="<?php the_permalink(); ?>">
+                                <div class="card shadow-sm">
+                                    <?php the_post_thumbnail(); ?>
+                                    <div class="card-body">
+                                        <h3 class="mb-0"><?php the_title(); ?></h3>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <?php endwhile;?>
+                            </a>
+                        </div>
+                    <?php endwhile; endif;?>
                 </div>
             </div>
-
         </div>
     </div>
 </main>
 <?php get_footer(); ?>
+
