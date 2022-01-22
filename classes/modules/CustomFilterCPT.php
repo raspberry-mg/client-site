@@ -12,6 +12,19 @@ class CustomFilterCPT{
 * Filrer for movie
 */
     public function custom_movie_filter( \WP_Query $query ) {
-      //code...
+        if ( is_admin() || ! $query->is_post_type_archive( 'movies' ) || ! $query->is_main_query() ) {
+            return;
+        }
+
+        $search        = filter_input( INPUT_GET, 'filter_search', FILTER_SANITIZE_STRING );
+        $meta_query = [];
+
+        if ( $search ) {
+            $query->set( 's', $search );
+        }
+
+        if ( $meta_query ) {
+            $query->set( 'meta_query', $meta_query );
+        }
     }
 }

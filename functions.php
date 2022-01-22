@@ -14,6 +14,7 @@ include 'classes/modules/API.php';
 //default
 new client_site\classes\theme\DefaultFunctionsTheme();
 //modules
-//new \theme_for_nix\classes\modules\CustomFilterCPT();
+new client_site\classes\modules\CustomFilterCPT();
 new  client_site\classes\modules\RegisterCPT();
 //new \theme_for_Nix\classes\modules\API();
+
