@@ -1,5 +1,4 @@
 <?php
-
 get_header(); ?>
 <style>
 img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
