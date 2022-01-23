@@ -23,6 +23,21 @@ class CustomFilterCPT{
             $query->set( 's', $search );
         }
 
+        if ($_REQUEST['sorting'] === 'AZ') {
+            $query->set('order', 'ASC');
+            $query->set('orderby', 'title');
+        }
+
+        if ($_REQUEST['sorting'] === 'release_new') {
+            $query->set('order', 'DESC');
+            $query->set('orderby', 'date');
+        }
+
+        if ($_REQUEST['sorting'] === 'release_old') {
+            $query->set('order', 'ASC');
+            $query->set('orderby', 'date');
+        }
+
         if ( $meta_query ) {
             $query->set( 'meta_query', $meta_query );
         }
