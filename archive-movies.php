@@ -3,6 +3,19 @@
  * Template Name: Movies archive
  * Template post type: page
  */
+
+global $wp_query, $page;
+$current_page = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+$custom_query_args = array
+    (
+    "post_type" => "movies",
+    "post_status" => "publish",
+    "paged" => $current_page,
+);
+$custom_query = new WP_Query($custom_query_args);
+$wp_query = null;
+$wp_query = $custom_query;
 get_header(); ?>
 <style>
 img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
