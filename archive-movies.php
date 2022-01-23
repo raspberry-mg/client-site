@@ -77,34 +77,6 @@ img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
                     <?php endwhile;endif; ?>
                 </div>
             </div>
-            <div class="col-md-9">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <?php
-global $wp_query, $page;
-$current_page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$custom_query_args = array
-    (
-    "post_type" => "movies",
-    "post_status" => "publish",
-    "paged" => $current_page,
-);
-$custom_query = new WP_Query($custom_query_args);
-$wp_query = null;
-$wp_query = $custom_query;
-while (have_posts()): the_post(); ?>
-                    <div class="col">
-                        <a style="text-decoration: none; color: black;" href="<?php the_permalink(); ?>">
-                            <div class="card shadow-sm">
-                                <?php the_post_thumbnail(); ?>
-                                <div class="card-body">
-                                    <h3 class="mb-0"><?php the_title(); ?></h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <?php endwhile; ?>
-                </div>
-            </div>
             <?php
 do_action('numeric_pagination');
 ?>

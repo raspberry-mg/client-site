@@ -12,6 +12,7 @@ class DefaultFunctionsTheme
 
         add_action('wp_enqueue_scripts', [$this, 'load_style_script']);
         add_action('after_setup_theme', [$this, 'theme_register_nav_menu']);
+        add_action('numeric_pagination', 'client_site\classes\theme\DefaultFunctionsTheme::numeric_pagination');
     }
 
     /**
@@ -57,6 +58,7 @@ class DefaultFunctionsTheme
     /**
      * CSS Numbered Pagination
      */
+
     public static function numeric_pagination()
     {
 
