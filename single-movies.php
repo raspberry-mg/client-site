@@ -1,11 +1,20 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying all single movie posts
+ *
+ * @package WordPress
+ * @subpackage Client_theme
+ * @since Client theme 1.0
+ */
+
+get_header(); ?>
 <div class="container">
   <div class="row py-5">
 
     <div class="col-md-8">
       <div class="row">
         <div class="col-md-4">
-          <?php the_post_thumbnail([230]); ?>
+          <?php the_post_thumbnail( [ 230 ] ); ?>
         </div>
         <div class="col-md-8">
           <h1 class="fw-bold"> <?php the_title(); ?></h1>

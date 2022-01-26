@@ -1,4 +1,11 @@
 <?php
+/**
+ * Class custom filter for custom post type
+ *
+ * @package WordPress
+ * @subpackage Client_theme
+ * @since Client theme 1.0
+ */
 
 namespace client_site\classes\modules;
 
@@ -23,19 +30,19 @@ class CustomFilterCPT{
             $query->set( 's', $search );
         }
 
-        if ($_REQUEST['sorting'] === 'AZ') {
-            $query->set('order', 'ASC');
-            $query->set('orderby', 'title');
+        if ( $_REQUEST[ 'sorting' ] === 'AZ' ) {
+            $query->set( 'order' , 'ASC');
+            $query->set( 'orderby' , 'title');
         }
 
-        if ($_REQUEST['sorting'] === 'release_new') {
-            $query->set('order', 'DESC');
-            $query->set('orderby', 'date');
+        if ( $_REQUEST[ 'sorting' ] === 'release_new') {
+            $query->set( 'order' , 'DESC' );
+            $query->set( 'orderby' , 'date' );
         }
 
-        if ($_REQUEST['sorting'] === 'release_old') {
-            $query->set('order', 'ASC');
-            $query->set('orderby', 'date');
+        if ( $_REQUEST[ 'sorting' ] === 'release_old' ) {
+            $query->set( 'order' , 'ASC' );
+            $query->set( 'orderby' , 'date' );
         }
 
         if ( $meta_query ) {
