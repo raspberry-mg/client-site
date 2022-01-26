@@ -9,7 +9,7 @@
 
 namespace client_site\classes\modules;
 
-class Pagination
+class CustomPagination
 {
 	public function __construct(){
 		add_action( 'numeric_pagination', [ $this, 'numeric_pagination' ] );
