@@ -1,8 +1,4 @@
 <?php
-/*
- * Template Name: Movies archive
- * Template post type: page
- */
 /**
  * The template for displaying archive movies pages
  *
@@ -12,20 +8,7 @@
  */
 
 get_header();
-global $wp_query, $page;
-$current_page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-//echo " cp: ".$current_page;
-$custom_query_args = array
-    (
-    "post_type" => "movies",
-    "post_status" => "publish",
-    "paged" => $current_page,
-);
-$custom_query = new WP_Query($custom_query_args);
-$wp_query = null;
-$wp_query = $custom_query;
-//echo " wpq: ";
-//print_r ($wp_query);
+
 ?>
 <style>
 img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
