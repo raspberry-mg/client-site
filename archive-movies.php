@@ -41,9 +41,7 @@ img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
                     <?php endwhile; endif; ?>
                 </div>
             </div>
-            <?php
-do_action( 'numeric_pagination' );
-?>
+            <?php do_action( 'numeric_pagination' ); ?>
         </div>
     </div>
 </main>
