@@ -1,3 +1,16 @@
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * Contains the closing of the #content div and all content after.
+ *
+ * @package WordPress
+ * @subpackage Client_theme
+ * @since Client theme 1.0
+ */
+
+?>
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="bootstrap" viewBox="0 0 118 94">
         <title>Bootstrap</title>
