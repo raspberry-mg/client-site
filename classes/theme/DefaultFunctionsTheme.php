@@ -13,19 +13,13 @@ class DefaultFunctionsTheme
         add_action('wp_enqueue_scripts', [$this, 'load_style_script']);
         add_action('after_setup_theme', [$this, 'theme_register_nav_menu']);
         add_action('numeric_pagination', 'client_site\classes\theme\DefaultFunctionsTheme::numeric_pagination');
-        //add_action('init', [$this, 'read_api']);
         add_action('update_movies_hook', [$this, 'update_movies'], 10, 3);
-        //wp_schedule_event(time(), 'daily', 'daily_movies_hook');
-
         add_filter('cron_schedules', [$this, 'update_minute']);
-        // time() - текущее время в UNIX-формате, то есть в первый раз задача выполнится моментально
-        if (!wp_next_scheduled('update_movies_hook')) {
+       if (!wp_next_scheduled('update_movies_hook')) {
             wp_schedule_event(time(), 'minute', 'update_movies_hook');
         }
         $response_body = json_decode(wp_remote_retrieve_body(wp_remote_get("http://api-laravel.backend-education.hulk.nixdev.co/api/v1/films?page=1")));
-        //echo " rb: ";
-        //print_r($response_body);
-
+        
     }
 
     /**
@@ -110,3 +104,58 @@ class DefaultFunctionsTheme
             echo '</ul></div>';
         }
     }
+
+    public function update_minute($um)
+    {
+        $um['minute'] = array(
+            'interval' => 180,
+            'display' => 'Every three minutes',
+        );
+        return $um;
+    }
+
+    public function update_movies()
+    {
+        header('Authorization: Bearer 1|6OH3e0SWcrWhRB7dr5Fcs3fSNlZLsDxmqyPIJZup');
+        //????
+        $text = mt_rand(5, 15) . " ";
+
+         global $wpdb;
+        require_once ABSPATH . '/wp-admin/includes/post.php';
+        $response_body = json_decode(wp_remote_retrieve_body(wp_remote_get("http://api-laravel.backend-education.hulk.nixdev.co/api/v1/films?page=1")));
+        for ($i = 1; $i <= $response_body->last_page; $i++)
+        {
+            $response_body = json_decode(wp_remote_retrieve_body(wp_remote_get("http://api-laravel.backend-education.hulk.nixdev.co/api/v1/films?page=".$i)));
+            foreach ($response_body->data as $rbd) {
+                update_post_meta(2, " rddk: ".$rbd->title, " rbdv: ".$rbd->title);
+                update_post_meta(3, " t: ".date("d,H,i,s", time()), " t: ".date("d,H,i,s", time()));
+                if (!(post_exists($rbd->title))) {
+                    $post_data = array(
+                        "post_title" => $rbd->title,
+                        "post_content" => $rbd->description,
+                        "post_status" => 'publish',
+                        "post_type" => 'movies',
+                        "post_author" => 1,
+                    );
+                    // Вставляем данные в БД
+                    $post_id = wp_insert_post(wp_slash($post_data));
+                } else {
+                    $rbd_title = addslashes($rbd->title);
+                    $sqlstr = "SELECT ID FROM wp_posts WHERE post_title='" . $rbd_title . "' AND post_status='publish' AND post_type='movies'";;
+
+                    $post = $wpdb->get_results($sqlstr, ARRAY_A);
+                    $post_id = $post[0]["ID"];
+                    $my_post = [
+                        'ID' => $post_id,
+                        "post_content" => $rbd->description,
+                    ];
+                    wp_update_post(wp_slash($my_post));
+                }
+                $arr_cat_titles = [];
+                foreach ($rbd->categories as $category)
+                   $arr_cat_titles[] = $category->title;
+                wp_set_object_terms($post_id, $arr_cat_titles, "category", false);                
+            }
+        }
+    }
+}
