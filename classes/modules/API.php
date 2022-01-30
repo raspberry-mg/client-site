@@ -26,7 +26,7 @@ class API {
 
         //TODO: ADD $response->last_page AFTER CRON IS DONE
 
-	    for($i = 2; $i < 10; $i++){
+	    for($i = 1; $i < 3; $i++){
             $response = wp_remote_get( ( 'http://api-laravel.backend-education.hulk.nixdev.co/api/v1/films?page='.$i ),
                 [ 'headers' =>
                     [
@@ -36,7 +36,6 @@ class API {
             );
             $films[] = json_decode( $response['body'] );
         }
-
 
 		return $films;
 	}
