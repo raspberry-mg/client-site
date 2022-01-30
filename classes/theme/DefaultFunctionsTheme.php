@@ -43,6 +43,8 @@ class DefaultFunctionsTheme
          * Scripts
          */
         wp_enqueue_script( 'bootstrap_b', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js' );
+	wp_enqueue_script('bootstrap_b', get_template_directory_uri() . '/assets/js/app.js');
+
     }
 
     /**
