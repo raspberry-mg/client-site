@@ -10,17 +10,33 @@
 namespace client_site\classes\modules;
 
 class API {
-	//DEMO
 
-	public function request( $page ) {
-		$response = wp_remote_get( ( 'http://api-laravel.backend-education.hulk.nixdev.co/api' ),
-			[ 'body' =>
-				  [
-//					  'api_key' => $this->api_key,
-//					  'page' => $page
-				  ]
-			]
-		);
-		return json_decode( $response['body'] );
+	public function request() {
+	    $films = [];
+
+        $response = wp_remote_get( ( 'http://api-laravel.backend-education.hulk.nixdev.co/api/v1/films?page=1' ),
+            [ 'headers' =>
+                [
+                    'Authorization' => 'Bearer 1|6OH3e0SWcrWhRB7dr5Fcs3fSNlZLsDxmqyPIJZup'
+                ]
+            ]
+        );
+
+        $response = json_decode($response['body']);
+
+        //TODO: ADD $response->last_page AFTER CRON IS DONE
+
+	    for($i = 1; $i < 3; $i++){
+            $response = wp_remote_get( ( 'http://api-laravel.backend-education.hulk.nixdev.co/api/v1/films?page='.$i ),
+                [ 'headers' =>
+                    [
+                        'Authorization' => 'Bearer 1|6OH3e0SWcrWhRB7dr5Fcs3fSNlZLsDxmqyPIJZup'
+                    ]
+                ]
+            );
+            $films[] = json_decode( $response['body'] );
+        }
+
+		return $films;
 	}
 }

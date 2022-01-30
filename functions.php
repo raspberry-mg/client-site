@@ -21,5 +21,29 @@ new client_site\classes\theme\DefaultFunctionsTheme();
 new client_site\classes\modules\CustomFilterCPT();
 new  client_site\classes\modules\RegisterCPT();
 new \client_site\classes\modules\CustomPagination();
-//new client_site\classes\modules\API();
+use client_site\classes\modules\API;
+
+add_action('customAddContent', addedPost());
+
+function addedPost(){
+        $array = (new API)->request();
+        foreach ($array as $films_cluster) {
+            $films = $films_cluster->data;
+            foreach ($films as $film) {
+                    $defaults = array(
+                        'post_author' => 1,
+                        'post_title' => $film->title,
+                        'post_content' => $film->description,
+                        'post_status' => 'publish',
+                        'post_type' => 'movies',
+                        'meta_input' => [
+                            'url_img' => $film->poster_path,
+                            'IDBM' => $film->vote_average,
+                            'Time' => $film->release_date
+                        ]
+                    );
+                    $id = wp_insert_post($defaults);
+                }
+            }
+}
 
