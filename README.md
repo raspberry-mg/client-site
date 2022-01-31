@@ -2,17 +2,19 @@
 Aleksey:
 
 - installing wordpress on server
-- add pagination
+- added pagination
 
 Margarita:
 
 - register a Custom Post Type 
 - fix bugs
-- add search
-- add sorting
+- added search
+- added sorting
+- added
 
 Yelisey:
 
+- work with API 
 - cron
 
 Dmitriy:
