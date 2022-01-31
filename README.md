@@ -1,22 +1,25 @@
+
 Aleksey:
 
 - installing wordpress on server
-- testing
 - add pagination
 
 Margarita:
 
 - register a Custom Post Type 
-- fix bug
+- fix bugs
 - add search
 - add sorting
 
 Yelisey:
 
-- creating API setting in admin for theme
 - cron
 
 Dmitriy:
 
 - creating theme for WP
-- Works with API
+- fix bugs 
+- review
+- advanced task
+- correction code 
+- refinement of small tasks
