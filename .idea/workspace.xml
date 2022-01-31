@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7c6fdc4-9e5d-45db-a2fa-7eca8324ad47" name="Changes" comment="" />
+    <list default="true" id="d7c6fdc4-9e5d-45db-a2fa-7eca8324ad47" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/classes/modules/CustomFilterCPT.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/modules/CustomFilterCPT.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
