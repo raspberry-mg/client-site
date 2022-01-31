@@ -31,10 +31,10 @@ get_header(); ?>
 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
 		<?php while ( $the_query->have_posts() ) : $the_query->the_post();?>
-            <div class="<?php echo ( get_the_ID() == $lastID )?'carousel-item active':'carousel-item '; ?>" style="height:auto; background: url(<?php the_post_thumbnail_url(); ?>); background-size: cover; background-position: center ">
+            <div class="<?php echo ( get_the_ID() == $lastID )?'carousel-item active':'carousel-item '; ?>" style="height:auto; background: url('https://image.tmdb.org/t/p/w500/<?php echo get_post_meta( the_ID(), 'poster_path' )?>'); background-size: cover; background-position: center ">
                 <div style="background: rgba(0,0,0,0.78)">
                     <div class="container" >
-                        <img src="<?php the_post_thumbnail_url(); ?>" class="bd-placeholder-img" width="auto" height="500px">
+                        <img src='https://image.tmdb.org/t/p/w500/<?php echo get_post_meta( the_ID(), 'poster_path' )?>' class="bd-placeholder-img" width="auto" height="500px">
                         <div class="carousel-caption text-end">
                             <h1><?php the_title(); ?></h1>
                             <p><a class="btn btn-lg btn-primary" href="<?php the_permalink(); ?>">Read</a></p>
@@ -59,7 +59,7 @@ get_header(); ?>
     <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-10 col-sm-8 col-lg-6">
-                <img src="<?php echo get_the_post_thumbnail_url() ?>" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                <img src='https://image.tmdb.org/t/p/w500/<?php echo get_post_meta( the_ID(), 'poster_path' )?>' class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
             </div>
             <div class="col-lg-6">
                 <h1 class="display-5 fw-bold lh-1 mb-3"><?php the_title(); ?></h1>
