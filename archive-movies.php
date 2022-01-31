@@ -21,8 +21,10 @@ img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
         <div class="row py-5">
             <div class="col-md-3">
                 <div class="position-sticky" style="top: 2rem;">
-	                <?php get_template_part( 'template-parts/filter/movie-sort' ) ?>
-                    <?php get_template_part( 'template-parts/filter/movie-filter' ) ?>
+                    <form action="<?php echo get_post_type_archive_link( 'movies' ); ?>" method="get">
+	                    <?php get_template_part( 'template-parts/filter/movie-sort' ) ?>
+                        <?php get_template_part( 'template-parts/filter/movie-filter' ) ?>
+                    </form>
                 </div>
             </div>
             <div class="col-md-9">

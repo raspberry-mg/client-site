@@ -23,7 +23,9 @@ class CustomFilterCPT{
             return;
         }
 
-        $search        = filter_input( INPUT_GET, 'filter_search', FILTER_SANITIZE_STRING );
+        $search            = filter_input( INPUT_GET, 'filter_search', FILTER_SANITIZE_STRING );
+	    $movie_imdb_rating = filter_input( INPUT_GET, 'movie_imdb_rating', FILTER_VALIDATE_INT);
+
         $meta_query = [];
 
         if ( $search ) {
@@ -44,6 +46,18 @@ class CustomFilterCPT{
             $query->set( 'order' , 'ASC' );
             $query->set( 'orderby' , 'release_date' );
         }
+
+	    if ( $movie_imdb_rating ) {
+		    $meta_query[] = [
+			    'relation' => 'OR',
+			    [
+				    'key'   => 'IDBM',
+				    'value' => $movie_imdb_rating,
+				    'compare' => '>=',
+				    'type'    => 'numeric',
+			    ]
+		    ];
+	    }
 
         if ( $meta_query ) {
             $query->set( 'meta_query', $meta_query );
