@@ -22,7 +22,7 @@ class API {
             ]
         );
 
-        $response = json_decode( $response['body'] );
+        $response = json_decode($response['body']);
 
         //TODO: ADD $response->last_page AFTER CRON IS DONE
 
@@ -34,7 +34,9 @@ class API {
                     ]
                 ]
             );
+
             $films[] = json_decode( $response['body'] );
+
         }
 
 		return $films;
