@@ -14,7 +14,7 @@ get_header(); ?>
     <div class="col-md-8">
       <div class="row">
         <div class="col-md-4">
-          <?php the_post_thumbnail( [ 230 ] ); ?>
+            <img width="230px" src="https://image.tmdb.org/t/p/w500/<?php echo get_post_meta( the_ID(), 'poster_path' ); ?>">
         </div>
         <div class="col-md-8">
           <h1 class="fw-bold"> <?php the_title(); ?></h1>
@@ -22,19 +22,13 @@ get_header(); ?>
                         <span class="fw-bold ">
                             IMDb:
                         </span>
-            $movie imdb
+	          <?php echo get_post_meta( the_ID(), 'vote_average' ); ?>
           </p>
           <p class="blog-post-meta">
                         <span class="fw-bold">
-                            Kinopoisk:
+                            Release:
                         </span>
-            $movie kinopoisk
-          </p>
-          <p class="blog-post-meta">
-                        <span class="fw-bold">
-                            Time:
-                        </span>
-             $movie time
+	          <?php echo get_post_meta( the_ID(), 'release_date' ); ?>
           </p>
         </div>
       </div>

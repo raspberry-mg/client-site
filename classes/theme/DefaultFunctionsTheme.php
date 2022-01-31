@@ -21,7 +21,7 @@ class DefaultFunctionsTheme
     {
         $cur_theme = wp_get_theme();
 
-	    define( 'THEME_FN_TEXT_DOMAIN', $cur_theme->get( 'TextDomain' ) );
+        define( 'THEME_FN_TEXT_DOMAIN', $cur_theme->get( 'TextDomain' ) );
         define( 'THEME_FN_VERSION',     $cur_theme->get( 'Version' ) );
     }
 
@@ -43,7 +43,7 @@ class DefaultFunctionsTheme
          * Scripts
          */
         wp_enqueue_script( 'bootstrap_b', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js' );
-	wp_enqueue_script('bootstrap_b', get_template_directory_uri() . '/assets/js/app.js');
+        wp_enqueue_script('app', get_template_directory_uri() . '/assets/js/app.js');
 
     }
 

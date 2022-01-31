@@ -29,7 +29,7 @@ img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <?php if ( have_posts() ): while ( have_posts() ): the_post(); ?>
                     <div class="col">
-                        <a style="text-decoration: none; color: black;" href="<?php the_permalink(); ?>">
+                        <img src="https://image.tmdb.org/t/p/w500/<?php echo get_post_meta( the_ID(), 'poster_path' ); ?>">
                             <div class="card shadow-sm">
                                 <?php the_post_thumbnail(); ?>
                                 <div class="card-body">

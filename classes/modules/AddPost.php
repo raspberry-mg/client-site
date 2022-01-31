@@ -11,6 +11,7 @@ namespace client_site\classes\modules;
 
 if (!wp_next_scheduled('my_task_hook')) {
     wp_schedule_event( time(), 'daily', 'my_task_hook' );
+
 }
 
 class AddPost
@@ -33,29 +34,29 @@ class AddPost
                     if ( isset ( $ch->ID ) ) {
                         $update = array(
                             'ID' => $ch->ID,
-                            'post_author'       => 1,
-                            'post_title'        => $film->title,
-                            'post_content'      => $film->description,
-                            'post_status'       => 'publish',
-                            'post_type'         => 'movies',
-                            'meta_input'        => [
-                                'poster_path'   => 'https://image.tmdb.org/t/p/w500/', $film->poster_path,
-                                'vote_average'  => $film->vote_average,
-                                'release_date'  => $film->release_date
+                            'post_author' => 1,
+                            'post_title' => $film->title,
+                            'post_content' => $film->description,
+                            'post_status' => 'publish',
+                            'post_type' => 'movies',
+                            'meta_input' => [
+                                'url_img' => $film->poster_path,
+                                'IDBM' => $film->vote_average,
+                                'Time' => $film->release_date
                             ]
                         );
                         wp_insert_post( $update );
                     } else {
                         $defaults = array(
-                            'post_author'       => 1,
-                            'post_title'        => $film->title,
-                            'post_content'      => $film->description,
-                            'post_status'       => 'publish',
-                            'post_type'         => 'movies',
-                            'meta_input'        => [
-                                'poster_path'   => 'https://image.tmdb.org/t/p/w500/', $film->poster_path,
-                                'vote_average'  => $film->vote_average,
-                                'release_date'  => $film->release_date
+                            'post_author' => 1,
+                            'post_title' => $film->title,
+                            'post_content' => $film->description,
+                            'post_status' => 'publish',
+                            'post_type' => 'movies',
+                            'meta_input' => [
+                                'url_img' => $film->poster_path,
+                                'IDBM' => $film->vote_average,
+                                'Time' => $film->release_date
                             ]
                         );
                         wp_insert_post( $defaults );
