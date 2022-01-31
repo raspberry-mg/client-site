@@ -26,4 +26,4 @@ new client_site\classes\modules\RegisterCPT();
 new client_site\classes\modules\CustomPagination();
 use client_site\classes\modules\API;
 new client_site\classes\modules\AddPost;
-new \client_site\classes\modules\RegisterACF();
+new \client_site\classes\modules\RegisterACF;
