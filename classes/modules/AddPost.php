@@ -35,9 +35,9 @@ class AddPost
                             'post_status' => 'publish',
                             'post_type' => 'movies',
                             'meta_input' => [
-                                'url_img' => $film->poster_path,
-                                'IDBM' => $film->vote_average,
-                                'Time' => $film->release_date
+                                'poster_path' => 'https://image.tmdb.org/t/p/w500'. $film->poster_path,
+                                'vote_average' => $film->vote_average,
+                                'release_date' => $film->release_date
                             ]
                         );
                         wp_insert_post($update);
@@ -49,9 +49,9 @@ class AddPost
                             'post_status' => 'publish',
                             'post_type' => 'movies',
                             'meta_input' => [
-                                'url_img' => $film->poster_path,
-                                'IDBM' => $film->vote_average,
-                                'Time' => $film->release_date
+                                'poster_path' => 'https://image.tmdb.org/t/p/w500'. $film->poster_path,
+                                'vote_average' => $film->vote_average,
+                                'release_date' => $film->release_date
                             ]
                         );
                         wp_insert_post($defaults);
