@@ -9,7 +9,7 @@
 
 namespace client_site\classes\modules;
 
-class RegisterACF {
+class RegisterPagesACF {
 
 	public function __construct() {
 		add_action( 'acf/init', [ $this, 'register_option_pages' ] );

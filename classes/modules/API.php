@@ -9,7 +9,16 @@
 
 namespace client_site\classes\modules;
 
+
+
 class API {
+	private function getApiKey(){
+		$api_key = get_field( 'api_key', 'option' );
+		$api_key = strtolower( $api_key );
+
+		return $api_key;
+	}
+
 
 	public function request() {
 	    $films = [];
@@ -17,7 +26,7 @@ class API {
         $response = wp_remote_get( ( 'http://api-laravel.backend-education.hulk.nixdev.co/api/v1/films?page=1' ),
             [ 'headers' =>
                 [
-                    'Authorization' => 'Bearer 1|6OH3e0SWcrWhRB7dr5Fcs3fSNlZLsDxmqyPIJZup'
+                    'Authorization' => 'Bearer ' . $this->getApiKey()
                 ]
             ]
         );
@@ -30,7 +39,7 @@ class API {
             $response = wp_remote_get( ( 'http://api-laravel.backend-education.hulk.nixdev.co/api/v1/films?page='.$i ),
                 [ 'headers' =>
                     [
-                        'Authorization' => 'Bearer 1|6OH3e0SWcrWhRB7dr5Fcs3fSNlZLsDxmqyPIJZup'
+                        'Authorization' => 'Bearer ' . $this->getApiKey()
                     ]
                 ]
             );
