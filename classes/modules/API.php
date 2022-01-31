@@ -22,11 +22,11 @@ class API {
             ]
         );
 
-        $response = json_decode($response['body']);
+        $response = json_decode( $response['body'] );
 
         //TODO: ADD $response->last_page AFTER CRON IS DONE
 
-	    for($i = 1; $i < 20; $i++){
+	    for($i = 1; $i < 100; $i++){
             $response = wp_remote_get( ( 'http://api-laravel.backend-education.hulk.nixdev.co/api/v1/films?page='.$i ),
                 [ 'headers' =>
                     [
