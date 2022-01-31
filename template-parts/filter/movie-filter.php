@@ -25,14 +25,12 @@
 <form action="<?php echo get_post_type_archive_link( 'movies' ); ?>" method="get">
 	<div class="mb-3">
 		<label for="filter_search" class="form-label">Search</label>
-		<input type="text" name="filter_search" class="form-control" id="filter_search"
-		       value="<?php echo $_GET[ 'filter_search' ]; ?>">
+		<input type="text" name="filter_search" class="form-control" id="filter_search" value="<?php echo $_GET[ 'filter_search' ]; ?>">
 	</div>
 	<div class="mb-3">
-		<label for="filter_relevance" class="form-label">IMDb Rating </label>
+		<label for="filter_relevance" class="form-label">Vote Average</label>
 		<div class="d-flex">
-			<input type="range" oninput="dynamicChangeNum()" id="movie_imdb_rating"
-			       name="movie_imdb_rating" min="0" max="10" value="">
+			<input type="range" oninput="dynamicChangeNum()" id="movie_imdb_rating" name="movie_imdb_rating" min="0" max="10" value="">
 			<div id="one"></div>
 		</div>
 	</div>

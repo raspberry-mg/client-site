@@ -37,12 +37,12 @@ class CustomFilterCPT{
 
         if ( $_REQUEST[ 'sorting' ] === 'release_new') {
             $query->set( 'order' , 'DESC' );
-            $query->set( 'orderby' , 'date' );
+            $query->set( 'orderby' , 'release_date' );
         }
 
         if ( $_REQUEST[ 'sorting' ] === 'release_old' ) {
             $query->set( 'order' , 'ASC' );
-            $query->set( 'orderby' , 'date' );
+            $query->set( 'orderby' , 'release_date' );
         }
 
         if ( $meta_query ) {
