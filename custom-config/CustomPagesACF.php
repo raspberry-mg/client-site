@@ -14,5 +14,5 @@ return [
 		'menu_slug'  => 'cron_setting',
 		'capability' => 'edit_posts',
 		'redirect'   => false,
-	],
+	]
 ];
