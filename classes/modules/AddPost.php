@@ -9,8 +9,11 @@
 
 namespace client_site\classes\modules;
 
+$recurrence = get_field( 'update_frequency', 'option' );
+$recurrence = strtolower($recurrence);
+
 if (!wp_next_scheduled('my_task_hook')) {
-    wp_schedule_event( time(), 'daily', 'my_task_hook' );
+    wp_schedule_event( time(), $recurrence, 'my_task_hook' );
 
 }
 
