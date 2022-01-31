@@ -14,7 +14,8 @@ get_header(); ?>
     <div class="col-md-8">
       <div class="row">
         <div class="col-md-4">
-            <img width="230px" src="https://image.tmdb.org/t/p/w500/<?php echo get_post_meta( the_ID(), 'poster_path' ); ?>">
+	        <?php $image = get_post_meta( get_the_ID(), 'url_img' );  ?>
+            <img width="100%" src="https://image.tmdb.org/t/p/w500/<?php echo $image[0];?>">
         </div>
         <div class="col-md-8">
           <h1 class="fw-bold"> <?php the_title(); ?></h1>
@@ -22,13 +23,13 @@ get_header(); ?>
                         <span class="fw-bold ">
                             IMDb:
                         </span>
-	          <?php echo get_post_meta( the_ID(), 'vote_average' ); ?>
+	          <?php $IDBM = get_post_meta( get_the_ID(), 'IDBM' ); echo $IDBM[0];?>
           </p>
           <p class="blog-post-meta">
                         <span class="fw-bold">
                             Release:
                         </span>
-	          <?php echo get_post_meta( the_ID(), 'release_date' ); ?>
+	          <?php $release = get_post_meta( get_the_ID(), 'Time' ); echo $release[0]; ?>
           </p>
         </div>
       </div>

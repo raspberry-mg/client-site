@@ -29,7 +29,9 @@ img.attachment-post-thumbnail.size-post-thumbnail.wp-post-image {
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <?php if ( have_posts() ): while ( have_posts() ): the_post(); ?>
                     <div class="col">
-                        <img src="https://image.tmdb.org/t/p/w500/<?php echo get_post_meta( the_ID(), 'poster_path' ); ?>">
+                        <a style="text-decoration: none; color: black;" href="<?php the_permalink(); ?>">
+	                    <?php $image = get_post_meta( get_the_ID(), 'url_img' );  ?>
+                        <img width="100%" src="https://image.tmdb.org/t/p/w500/<?php echo $image[0];?>">
                             <div class="card shadow-sm">
                                 <?php the_post_thumbnail(); ?>
                                 <div class="card-body">
